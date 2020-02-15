@@ -1,10 +1,3 @@
-<!--
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-07-23 12:08:49
- * @LastEditTime: 2019-12-10 11:28:17
- * @LastEditors: Please set LastEditors
- -->
 <template>
   <el-dialog
     :close-on-click-modal="false"
