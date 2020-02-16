@@ -6,7 +6,7 @@
  * @LastEditors: Please set LastEditors
  -->
 <template>
-  <el-collapse :value="['1','2', '3']" style="width: 100%;">
+  <el-collapse :value="['1','2','3','4']" style="width: 100%;">
     <el-collapse-item title="基础字段" name="1">
       <draggable
         :list="base.child"
@@ -63,6 +63,20 @@
         </div>
       </draggable>
     </el-collapse-item>
+    <el-collapse-item title="图表" name="4">
+      <draggable
+        :list="charts.child"
+        :group="{ name: 'form-design', pull: 'clone', put: false }"
+        @change="log"
+      >
+        <div class="cell" v-for="(item, i) in charts.child" :key="i">
+          <p class="left">
+           <span :class="`iconfont icon-${item.icon}`"></span>
+          </p>
+          <p class="right">{{item.title}}</p>
+        </div>
+      </draggable>
+    </el-collapse-item>
   </el-collapse>
 </template>
 
@@ -70,18 +84,20 @@
 import draggable from 'vuedraggable'
 import common from '@/utils/common'
 import bus from '@/utils/bus'
-import { base, senior, layout, elseItem } from './FDMenu'
+import { base, senior, layout, elseItem, charts } from './FDMenu.js'
 
 export default {
   components: {
     draggable
   },
+  name: 'FDMenu',
   data () {
     return {
       base,
       senior,
       layout,
-      elseItem
+      elseItem,
+      charts
     }
   },
   mounted () {
@@ -99,6 +115,7 @@ export default {
       this.senior = common.deepClone(senior)
       this.layout = common.deepClone(layout)
       this.elseItem = common.deepClone(elseItem)
+      this.charts = common.deepClone(charts)
     }
   }
 }

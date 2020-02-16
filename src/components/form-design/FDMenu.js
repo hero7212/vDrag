@@ -260,3 +260,18 @@ export const elseItem = {
 	}],
 	key: ''
 }
+export const charts = {
+	title: '图表',
+	child: [{
+		title: '图表',
+		type: 'chart',
+		icon: 'ai211',
+		value: '标题',
+		options: {
+			align: 'center',
+			fontSize: '18px'
+		},
+		key: ''
+	}],
+	key: ''
+}
