@@ -958,136 +958,21 @@ export default {
           })
 
           if (exist) continue
-          switch (element.type) {
-            case 'input':
-              this.columnList_extend.push({
-                key: element.key,
-                code: element.code,
-                tableColumnCode: element.tableColumnCode,
-                placeholder: element.options.placeholder,
-                // defaultValue: element.options.defaultValue,
-                formType: element.formType,
-                isReadonly: element.options.readonly,
-                len: element.options.maxlength,
-                name: element.title,
-                tabName: tabName
-              })
-              break
-            case 'textarea':
-              this.columnList_extend.push({
-                key: element.key,
-                code: element.code,
-                tableColumnCode: element.tableColumnCode,
-                placeholder: element.options.placeholder,
-                // defaultValue: element.options.defaultValue,
-                formType: element.formType,
-                isReadonly: element.options.readonly,
-                len: element.options.maxlength,
-                name: element.title,
-                tabName: tabName
-              })
-              break
-            case 'idea':
-              this.columnList_extend.push({
-                key: element.key,
-                code: element.code,
-                tableColumnCode: element.tableColumnCode,
-                placeholder: element.options.placeholder,
-                // defaultValue: element.options.defaultValue,
-                formType: element.formType,
-                isReadonly: element.options.readonly,
-                len: element.options.maxlength,
-                name: element.title,
-                tabName: tabName
-              })
-              break
-            case 'number':
-              this.columnList_extend.push({
-                key: element.key,
-                code: element.code,
-                tableColumnCode: element.tableColumnCode,
-                placeholder: element.options.placeholder,
-                // defaultValue: element.options.defaultValue,
-                formType: element.formType,
-                isReadonly: element.options.readonly,
-                len: element.options.maxlength,
-                name: element.title,
-                tabName: tabName
-              })
-              break
-            case 'radio':
-              this.columnList_extend.push({
-                key: element.key,
-                code: element.code,
-                tableColumnCode: element.tableColumnCode,
-                placeholder: element.options.placeholder,
-                // defaultValue: element.options.defaultValue,
-                formType: element.formType,
-                isReadonly: element.options.readonly,
-                len: element.options.maxlength,
-                name: element.title,
-                tabName: tabName
-              })
-              break
-            case 'checkbox':
-              this.columnList_extend.push({
-                key: element.key,
-                code: element.code,
-                tableColumnCode: element.tableColumnCode,
-                placeholder: element.options.placeholder,
-                defaultValue: '',
-                formType: element.formType,
-                isReadonly: element.options.readonly,
-                len: element.options.maxlength,
-                name: element.title,
-                tabName: tabName
-              })
-              break
-            case 'datetime':
-              this.columnList_extend.push({
-                key: element.key,
-                code: element.code,
-                tableColumnCode: element.tableColumnCode,
-                placeholder: element.options.placeholder,
-                // defaultValue: element.options.defaultValue,
-                formType: element.formType,
-                isReadonly: element.options.readonly,
-                len: element.options.maxlength,
-                name: element.title,
-                tabName: tabName
-              })
-              break
-            case 'select':
-              this.columnList_extend.push({
-                key: element.key,
-                code: element.code,
-                tableColumnCode: element.tableColumnCode,
-                placeholder: element.options.placeholder,
-                // defaultValue: element.options.defaultValue,
-                formType: element.formType,
-                isReadonly: element.options.readonly,
-                len: element.options.maxlength,
-                name: element.title,
-                tabName: tabName
-              })
-              break
-            case 'switch':
-              this.columnList_extend.push({
-                key: element.key,
-                code: element.code,
-                tableColumnCode: element.tableColumnCode,
-                placeholder: element.options.placeholder,
-                // defaultValue: element.options.defaultValue,
-                formType: element.formType,
-                isReadonly: element.options.readonly,
-                len: element.options.maxlength,
-                name: element.title,
-                tabName: tabName
-              })
-              break
-            default:
-              break
-          }
+
+          this.columnList_extend.push({
+            key: element.key,
+            code: element.code,
+            tableColumnCode: element.tableColumnCode,
+            placeholder: element.options.placeholder,
+            defaultValue: '',
+            formType: element.formType,
+            isReadonly: element.options.readonly,
+            len: element.options.maxlength,
+            name: element.title,
+            tabName: tabName
+          })
+
+
         } else {
           element.cols.forEach(element2 => {
             this.packData(element2.list, tabName)
