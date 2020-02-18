@@ -128,7 +128,7 @@
                 :propData="$store.state.formDesign.activeForm"
               />
             </el-tab-pane>
-            <el-tab-pane label="表单属性" name="2">
+            <el-tab-pane v-if="formTabShow" label="表单属性" name="2">
               <el-form label-position="top" label-width="80px" size="mini">
                 <el-form-item label="标签对齐方式">
                   <el-radio-group v-model="formAttr.align">
@@ -781,6 +781,7 @@ export default {
     FDIdea,
     ECPie
   },
+  name: 'flow-editor',
   data () {
     return {
       visible: false,
@@ -856,6 +857,10 @@ export default {
   computed: {
     showNewVersion () {
       return !common.isEmpty(this.id)
+    },
+    formTabShow () {
+      return ['input', 'textarea', 'idea', 'radio', 'number', 'checkbox', 'datetime', 'select', 'img', 'title', 'grid']
+      .includes(this.$store.state.formDesign.showType)
     }
   },
   methods: {
