@@ -114,9 +114,12 @@
         @click="activeCell"
       >{{data.value}}</p>
 
-      <!-- <div class="echarts" v-if="data.type === 'chart'">
-        <v-chart :options="polar"/>
-      </div> -->
+      <div class="echarts-wrapper" v-if="data.type === 'polar'">
+        <v-charts :options="polar"/>
+      </div>
+      <div class="echarts-wrapper" v-if="data.type === 'pie'">
+        <v-charts :options="pie"/>
+      </div>
 
       <FDGridPanel
         v-else
@@ -185,8 +188,12 @@
 import ECharts from 'vue-echarts'
 import 'echarts/lib/chart/bar'
 import 'echarts/lib/chart/line'
+import 'echarts/lib/chart/pie'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/polar'
+
+import polar from '@/echart/polar.js'
+import pie from '@/echart/pie.js'
 import common from '@/utils/common'
 import FDGridPanel from '@/components/form-design/FDGridPanel'
 import bus from '@/utils/bus'
@@ -357,48 +364,10 @@ export default {
     }
   },
   data () {
-    let data = []
-
-    for (let i = 0; i <= 360; i++) {
-      let t = i / 180 * Math.PI
-      let r = Math.sin(2 * t) * Math.cos(2 * t)
-      data.push([r, i])
-    }
+    
     return {
-      polar: {
-        title: {
-          text: '极坐标双数值轴'
-        },
-        legend: {
-          data: ['line']
-        },
-        polar: {
-          center: ['50%', '54%']
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'cross'
-          }
-        },
-        angleAxis: {
-          type: 'value',
-          startAngle: 0
-        },
-        radiusAxis: {
-          min: 0
-        },
-        series: [
-          {
-            coordinateSystem: 'polar',
-            name: 'line',
-            type: 'line',
-            showSymbol: false,
-            data: data
-          }
-        ],
-        animationDuration: 2000
-      },
+      polar,
+      pie,
       ideaDialogVisible: false,
       ideaTabIndex: '1'
     }
@@ -406,7 +375,10 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="stylus">
+.echarts-wrapper {
+  height: auto;
+}
 .echarts {
   width: 100%;
   height: 100%;
@@ -416,6 +388,7 @@ export default {
   padding: 10px 10px 20px 10px;
   position: relative;
   cursor: move;
+  
 }
 .cell-active {
   background-color: #b3d8ff;
@@ -461,4 +434,6 @@ export default {
   background: url("../../assets/img/delete-active.png") no-repeat center;
   background-color: #f56c6c;
 }
+
+
 </style>

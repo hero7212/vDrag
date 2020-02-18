@@ -123,6 +123,10 @@
                 v-show="$store.state.formDesign.showType === 'grid'"
                 :propData="$store.state.formDesign.activeForm"
               />
+              <ECPie
+                v-show="$store.state.formDesign.showType === 'pie'"
+                :propData="$store.state.formDesign.activeForm"
+              />
             </el-tab-pane>
             <el-tab-pane label="表单属性" name="2">
               <el-form label-position="top" label-width="80px" size="mini">
@@ -753,6 +757,7 @@ import Test from '@/components/form-design/Test'
 import FDMenu from '@/components/form-design/FDMenu.vue'
 import FDGrid from '@/components/form-design/FDGrid'
 import nestedExample from '@/components/form-design/nestedExample'
+import ECPie from '@/components/form-design/echarts/ECPie'
 import common from '@/utils/common'
 import FDTitle from '@/components/form-design/FDTitle'
 import bus from '@/utils/bus'
@@ -773,7 +778,8 @@ export default {
     nestedExample,
     FDGrid,
     FDTitle,
-    FDIdea
+    FDIdea,
+    ECPie
   },
   data () {
     return {
@@ -965,6 +971,7 @@ export default {
             tableColumnCode: element.tableColumnCode,
             placeholder: element.options.placeholder,
             defaultValue: '',
+            // defaultValue: element.options.defaultValue,
             formType: element.formType,
             isReadonly: element.options.readonly,
             len: element.options.maxlength,

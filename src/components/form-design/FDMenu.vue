@@ -132,6 +132,7 @@ export default {
   margin: 0 10px 10px 0;
 }
 .cell .left {
+  display: none;
   float: left;
   width: 27px;
   height: 100%;

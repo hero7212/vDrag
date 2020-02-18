@@ -263,8 +263,18 @@ export const elseItem = {
 export const charts = {
 	title: '图表',
 	child: [{
-		title: '图表',
-		type: 'chart',
+		title: '圆形图',
+		type: 'polar',
+		icon: 'ai211',
+		value: '标题',
+		options: {
+			align: 'center',
+			fontSize: '18px'
+		},
+		key: ''
+	},{
+		title: '饼图',
+		type: 'pie',
 		icon: 'ai211',
 		value: '标题',
 		options: {
